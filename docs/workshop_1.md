@@ -8,7 +8,11 @@ What will you learn in this workshop?
 - [What is programming?](#what-is-programming)
 - [What is Python?](#what-is-python)
 - [Basic Python syntax](#basic-python-syntax)
-- Variables
+- [Variables](#variables)
+- [Data types](#data-types)
+- [Why data types are important?](#why-data-types-are-important)
+- [Type casting](#type-casting)
+- [Arithmetic and comparison operators](#arithmetic-and-comparison-operators)
 
 
 ## How does computer work?
@@ -135,6 +139,174 @@ CLI (Command Line Interface) is a text-based interface that allows users to inte
 
 GUI (Graphical User Interface) is a visual interface that allows users to interact with the computer using graphical elements.
 
+### Variables
+Variables are used to store data in a computer program.
+RAM only holds values as 8-bit binary numbers (0s and 1s).
+
+| address | value (binary) | real value |
+|---------|----------------|------------|
+| 100     | 00001010       | 10         |
+| 101     | 00010100       | 20         |
+| 102     | 00011110       | 30         |
+
+
+```python
+# Assigning values to variables
+a = 10 # address 100
+b = 20 # address 101
+c = 30 # address 102
+
+# Printing variables
+print(a)
+print(b)
+print(c)
+```
+
+Output:
+```
+10
+20
+30
+```
+
+### Data types
+Variables should be declared with a data type in some programming languages. Python is a dynamically typed language, so you don't have to declare the data type of a variable.
+However behind the scenes, Python does assign a data type to the variable. 
+
+| Data type | Description           | Example         |
+|-----------|-----------------------|-----------------|
+| int       | Integer               | 10              |
+| float     | Floating-point number | 10.5            |
+| str       | String                | "Hello, World!" |
+| bool      | Boolean               | True, False     |
+
+
+RAM
+
+| address | value (binary) | real value      | Variable |
+|---------|----------------|-----------------|----------|
+| 100     | 00001010       | 10              | a        |
+| 101     | 00000001       | True            | d        |
+
+floats and string are stored in a different way in memory.
+and require more than 8 bits to store.
+[Floating-point number representation](https://developer.arm.com/documentation/101655/0961/Cx51-User-s-Guide/Advanced-Programming/Data-Storage-Formats/Floating-point-Numbers)
+
+Strings are stored as a sequence of characters in memory.
+characters are stored as [ASCII](https://en.wikipedia.org/wiki/ASCII) values in memory.
+characters are stored as 8-bit binary numbers (0s and 1s).
+
+| address | value (binary) | real value | Variable |
+|---------|----------------|------------|----------|
+| 200     | 01001000       | H          | c        |
+| 201     | 01100101       | e          |          |
+| 202     | 01101100       | l          |          |
+| 203     | 01101100       | l          |          |
+| 204     | 01101111       | o          |          |
+| 205     | 00101100       | ,          |          |
+| 206     | 00100000       |            |          |
+| 207     | 01010111       | W          |          |
+| 208     | 01101111       | o          |          |
+| 209     | 01110010       | r          |          |
+| 210     | 01101100       | l          |          |
+| 211     | 01100100       | d          |          |
+| 212     | 00100001       | !          |          |
+
+
+```python
+# Assigning values to variables
+a = 10 # int
+b = 10.5 # float
+c = "Hello, World!" # str
+d = True # bool
+
+# Printing variables
+print(a)
+print(b)
+print(c)
+print(d)
+```
+
+Output:
+```
+10
+10.5
+Hello, World!
+True
+```
+
+### Why data types are important?
+Data types are important because they tell the computer how to interpret the data stored in the memory.
+As we saw in memory, the computer stores data in binary format (0s and 1s).
+
+If we try to add an integer and a string, the computer will not be able to perform the operation because it doesn't know how to interpret the data.
+
+```python
+a = 10
+b = "20"
+print(a + b)
+```
+
+Output:
+```
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+```
+
+### Type casting
+Type casting is the process of converting one data type to another data type.
+It allows us to perform operations on different data types.
+
+```python
+a = 10
+b = "20"
+print(a + int(b))
+```
+
+Output:
+```
+30
+```
+
+### Arithmetic and comparison operators
+Operators are used to perform operations on variables and values.
+
+```python
+# Arithmetic operators
+a = 10
+b = 20
+print('a + b =', a + b) # Addition
+print('a - b =', a - b) # Subtraction
+print('a * b =', a * b) # Multiplication
+print('a / b =', a / b) # Division
+print('a % b =', a % b) # Modulus
+print('a ** b =', a ** b) # Exponentiation
+print('a // b =', a // b) # Floor division
+
+# Comparison operators
+print('a == b:', a == b) # Equal
+print('a != b:', a != b) # Not equal
+print('a > b:', a > b) # Greater than
+print('a < b:', a < b) # Less than
+print('a >= b:', a >= b) # Greater than or equal to
+print('a <= b:', a <= b) # Less than or equal to
+```
+
+Output:
+```
+a + b = 30
+a - b = -10
+a * b = 200
+a / b = 0.5
+a % b = 10
+a ** b = 100000000000000000000
+a // b = 0
+a == b: False
+a != b: True
+a > b: False
+a < b: True
+a >= b: False
+a <= b: True
+```
 
 
 
